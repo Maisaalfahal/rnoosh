@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>انشاء حساب</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+        background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    label {
+        display: block; /* جعل التسمية تأخذ سطر كامل */
+        margin-bottom: 5px; /* إضافة مسافة بين التسمية والحقل */
+        text-align: right; /* محاذاة التسمية لليمين */
+    }
+
+    input[type="password"],
+    input[type="email"] {
+        width: calc(100% - 20px); /* خصم الهوامش */
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+        }
+
+        h2 {
+            font-size: 24px;
+        }
+
+        input[type="password"],
+        input[type="email"],
+        button {
+            font-size: 14px;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <h2>انشاء حساب</h2>
+        <form id="loginForm" action="login.html" method="get">
+            <label for="email">ادخل الايميل:</label>
+            <input type="email" id="email" name="email" placeholder="ادخل الايميل" required>
+
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" name="password" placeholder="ادخل الباسورد" required>
+
+            <button type="submit">دخول</button>
+        </form>
+    </div>
+</body>
+</html>

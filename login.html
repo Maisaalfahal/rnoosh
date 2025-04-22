@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل دخول</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f8;
+            text-align: center;
+            margin: 0;
+            height: 100vh; /* يجعل الجسم يغطي كامل ارتفاع الشاشة */
+            display: flex;
+            justify-content: center; /* مركز عمودي */
+            align-items: center; /* مركز أفقي */
+            background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794');
+            background-size: cover; /* يجعل الخلفية تغطي كامل الشاشة */
+        }
+        input[type="password"], input[type="email"] {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #005599;
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+            input[type="password"], input[type="email"] {
+                width: 100%;
+            }
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            input[type="password"],
+            input[type="email"],
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>تسجيل دخول</h1>
+        <form action="home.html" method="get">
+            <input type="email" id="email" name="email" placeholder="ادخل الايميل" required><br>
+            <input type="password" id="password" name="password" placeholder="كلمة المرور" required><br>
+            <input type="submit" value="دخول">
+        </form>
+    </div>
+</body>
+</html>

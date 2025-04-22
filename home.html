@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر الكتب</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #232f3e;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+  
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+nav{
+    margin-left: 50px;
+}
+
+nav ul {
+  
+    direction: rtl; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    margin-right: 10px;
+    color: #fff;
+    text-decoration: none;
+    
+}
+
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-container input {
+    padding: 10px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.search-container select {
+    padding: 10px;
+    border: none;
+    border-radius: 0 4px 4px 0;
+}
+
+.search-container button {
+    padding: 10px;
+    background: #febd69;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background: #f3a847;
+}
+
+.cart-icon {
+    margin-left: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+
+
+
+
+.dropdown{
+   position: relative;
+
+        }
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: rgba(255, 255, 255, 0.95); 
+z-index: 1;
+border-radius: 10px; 
+padding: 10px; 
+width: 200px; 
+column-count: 2; 
+column-gap: 15px;
+
+}
+
+.dropdown-content ul {
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li {
+    
+    margin: 5px 0; 
+}
+
+.dropdown-content li a {
+    
+    display: block; 
+    color: black;
+    padding: 10px; 
+    border-radius: 5px; 
+    transition: background 0.3s;
+    text-align: center; 
+}
+
+.dropdown-content li a:hover {
+    background: rgba(0, 0, 0, 0.1); 
+    color: red;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; 
+}
+        /* تحسينات للتجاوب */
+        @media (max-width: 768px) {
+            nav {
+                margin-left: 0;
+                text-align: center; /* توسيط النص في التنقل */
+            }
+
+            nav ul {
+                flex-direction: column; /* جعل القائمة عمودية */
+                align-items: center; /* توسيط العناصر */
+            }
+
+            .book-item {
+                width: calc(100% - 20px); /* عرض كامل على الشاشات الصغيرة */
+            }
+
+            .search-container {
+                flex-direction: column; /* جعل العناصر عمودية */
+                align-items: stretch; /* جعل العناصر تمتد */
+            }
+            .welcome-section{
+  width: 80%;
+
+  background-position: center;
+}
+        }
+       
+.welcome-section h2 {
+    font-size: 28px;
+    margin: 0 0 10px;
+    color: black;
+    transform: translateY(80px);
+}
+
+.welcome-section p {
+    font-size: 18px;
+    color: black;
+    transform: translateY(80px);
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"> <img src="./1/school/feem_5dc1479c8482e_IMG-20250327-WA0032.jpg" style="width: 80px; border-radius: 50%;" alt=""></div>
+        <nav>
+            <ul class="nav-list" id="navList">
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="about.html">عنّا</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">الكتب</a>
+                    <div class="dropdown-content">
+                        <ul>
+                            
+                            <li><a href="rw2.html">مدرسية</a></li>
+                            <li><a href="علمية.html">علمية</a></li>
+                            <li><a href="other.html">أخرى</a></li>
+                            <li><a href="علمية.html">الكترونية</a></li>
+                            <li><a href="علمية.html">دينية</a></li>
+                            <li><a href="علمية.html">الفلسفية</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="buyer.html">شراء</a></li>
+                <li><a href="sell.html">بيع</a></li>
+                <li><a href="contact.html">للتواصل</a></li>
+                <li><a href="login.html">تسجيل الخروج</a></li>
+            </ul>
+        </nav>
+        
+        <div class="search-container">
+            <input type="text" placeholder="ابحث عن كتاب...">
+            <select id="book-types">
+                <option value="">اختر نوع الكتاب</option>
+                <option value="fiction">خيال</option>
+                <option value="non-fiction">غير خيالي</option>
+                <option value="science">علمي</option>
+                <option value="history">تاريخي</option>
+            </select>
+            <button>بحث</button>
+            <div class="cart-icon">
+                <button>سلة الشراء (0)</button>
+            </div>
+        </div>
+
+
+        
+    </header>
+    <div class="welcome-section" style="background-image: url('./1/school/1.jpeg'); background-size: cover; padding: 50px; text-align: center; height: 500px;">
+        <h2>Welcome to Idraak Bookstore!</h2>
+        <p>Enjoy a unique experience in the world of books.</p>
+    </div>
+    <main>
+        <h2>الكتب المتاحة</h2>
+        <div class="book-list">
+            <div class="book-item">
+                <a href="buyer.html">
+                <img src="./3/feem_5dc1479c8482e_IMG-20250413-WA0009.jpg" alt="كتاب 1">
+                </a>
+                <h3>DEMONS</h3>
+                <p>>رواية DEMONS هي احدى ابرز اعمال الكاتب الروسي فيودور دوستويفسكي</p>
+                <button>شراء</button>
+            </div>
+            <div class="book-item">
+                <a href="buyer.html">
+                <img src="./3/feem_5dc1479c8482e_IMG-20250413-WA0008.jpg" alt="كتاب 2">
+                </a>
+                <h3> ساعة الصفر</h3> 
+            <P>تدور احدداث الرويه في منز ل يدعى وجالزبوينت و حيث تدعي  مجموعة من الشخاص لقضاء عطلة تبدا الاحداث الكاتبة اجاثا كريستيس</p>
+
+                <button>شراء</button>
+            </div>
+            <div class="book-item">
+                <a href="buyer.html">
+                <img src="./3/feem_5dc1479c8482e_IMG-20250413-WA0011.jpg" alt="كتاب 3">
+                </a>   
+                
+                <h3> السلام عليك يا صاحبي</h3>
+                <p> احدى الكتب الشهير في الادب العربي المعاصر من تاليف احمد بهجت الاذي يعد واحد من الكتاب المصريين </p> 
+                 <button>شراء</button>
+            </div>
+            <div class="book-item">
+                <a href="buyer.html">
+                <img src="./3/feem_5dc1479c8482e_IMG-20250413-WA0010.jpg" alt="كتاب 4"></a>
+                <a href="http://" target="_blank" rel="noopener noreferrer"></a>
+                <h3> الاب الغني و الاب الفقير</h3>
+                <p>الاب الغني و الاب الفقير هو م  كتا اشهير في مجال الثقافة المالية من تاليف روبرت كيوساكي ب </p>
+              <button>شراء</button>
+            </div>
+        </div>
+    </main>  <footer>
+        <p>جميع الحقوق محفوظة &copy; 2025 متجر الكتب</p>
+    </footer>
+</body>
+</html>

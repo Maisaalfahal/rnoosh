@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكتب</title>
+    
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3498db;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+.books-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.book-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 200px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.book-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.book-card h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+
+.book-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+footer {
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+
+
+.dropdown{
+   position: relative;
+
+        }
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: rgba(255, 255, 255, 0.95); 
+z-index: 1;
+border-radius: 10px; 
+padding: 10px; 
+width: 200px; 
+column-count: 2; 
+column-gap: 15px;
+
+}
+
+.dropdown-content ul {
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-content li {
+    
+    margin: 5px 0; 
+}
+
+.dropdown-content li a {
+    
+    display: block; 
+    color: black;
+    padding: 10px; 
+    border-radius: 5px; 
+    transition: background 0.3s;
+    text-align: center; 
+}
+
+.dropdown-content li a:hover {
+    background: rgba(0, 0, 0, 0.1); 
+    color: red;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; 
+}
+
+
+
+
+
+nav{
+    margin-left: 50px;
+  
+ 
+}
+
+
+nav ul {
+  
+    direction: rtl; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    margin-right: 10px;
+    color: #fff;
+    text-decoration: none;
+    
+}
+</style>
+<body>
+    <header>
+       
+
+        <nav>
+         
+            <ul class="nav-list" id="navList">
+                <li><a href="home.html">الرئيسية</a></li>
+                <li><a href="about.html">عنّا</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">الكتب</a>
+                    <div class="dropdown-content">
+                        <ul>
+                    
+                            <li><a href="rw2.html">مدرسية</a></li>
+                            <li><a href="#scientific">علمية</a></li>
+                            <li><a href="other.html">أخرى</a></li>
+                            <li><a href="#electronic">الكترونية</a></li>
+                            <li><a href="#religious">دينية</a></li>
+                            <li><a href="#philosophical">الفلسفية</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="buyer.html">شراء</a></li>
+                <li><a href="sell.html">بيع</a></li>
+                <li><a href="contact.html">للتواصل</a></li>
+                <li><a href="login.html">تسجيل الخروج</a></li>
+            </ul>
+            </nav>
+       
+
+        <h1>قائمة الكتب</h1>
+      
+    </header>
+
+    <main>
+
+        <!-- الفئة العلمية -->
+        <section>
+            <h2>الفئة العلمية</h2>
+            <div class="books-container">
+                <div class="book-card">
+                    <img src="./2/علمية/22b0707322977ab748a4c608f1786940.png.webp" alt="رياضيات">
+                    <h3>منهجية البحث العلمي</h3>
+                    <p>السعر: 50 جنيه</p>
+                    <p>عامر ابراهيم قنديلجي  </p>
+                </div>
+                <div class="book-card">
+                    <img src="./2/علمية/357a8e326a13843ceac69b945f79835b.jpg.webp" alt="فيزياء">
+                    <h3>البحث العلمي </h3>
+                    <p>السعر: 55 جنيه</p>
+                    <p> صبحي مصطفي عليات </p>
+                </div>
+                <div class="book-card">
+                    <img src="./2/علمية/69741b22f0a9cb743eba844d1664b2c9.png.webp" alt="فيزياء">
+                    <h3>منهجية البحث العلمي</h3>
+                    <p>السعر: 55 جنيه</p>
+                    <p>سعد سلمان المشهداني</p>
+                </div>
+                <div class="book-card">
+                    <img src="./2/علمية/c5a3bed93ab4fc0051fe0aa0ea22db99.jpg.webp" alt="فيزياء">
+                    <h3>البحث العلمي مفهومه وادواته</h3>
+                    <p>السعر: 55 جنيه</p>
+                    <p>زوقان عبيدات </p>
+                </div>
+               
+                <!-- باقي الكتب هنا بنفس الطريقة -->
+            </div>
+        </section>
+
+        <!-- الفئة الدينية -->
+        <section>
+            <h2>الفئة الدينية</h2>
+            <div class="books-container">
+                <div class="book-card">
+                    <img src="./2/دنية/4c6c488575b10108d6558b847c44050b.png.webp" alt="فيزياء">
+                    <h3>علم الاجتماع الدينية</h3>
+                    <p>السعر: 55 جنيه</p>
+                    <p>انزو</p>
+                </div>
+                <div class="book-card">
+                    <img src="./2/دنية/82d4725f5c7b347d841c863008f3da50.png.webp" alt="فيزياء">
+                    <h3>التربية الدينية </h3>
+                    <p>السعر: 55 جنيه</p>
+                    <p> الحسيني محمد المداح</p>
+                </div>
+                <div class="book-card">
+                    <img src="./2/دنية/9b1761295f46f3bf723789d3862b868f.jpg.webp" alt="فيزياء">
+                    <h3>الارشاد النفسي الديني في ضوء القران</h3>
+                    <p>السعر: 55 جنيه</p>
+                    <p>محمود فتوح محمد سعدات </p>
+                </div>
+                <div class="book-card">
+                    <img src="./2/دنية/afa8ebdfeadfd4c23f0c71e447ca3c57.png.webp" alt="فيزياء">
+                    <h3>التربية الدينية الاسلامية</h3>
+                    <p>السعر: 55 جنيه</p>
+                    <p></p>
+                </div>
+              
+                <!-- باقي الكتب -->
+            </div>
+        </section>
+
+        <section>
+            <h2>الفئة الفلسفية</h2>
+            <div class="books-container">
+                <div class="book-card">
+                    <img src="./2/فلسفية/4bad64c5991b978182178adb775820e0.png.webp" alt="تطوير الذات">
+                    <h3> التفكير الفلسفي</h3>
+                    <p>السعر: 60 جنيه</p>
+                    <p>محمد سعيد احمد زيدان</p>
+                </div>
+                <div class="book-card">
+                    <img src="./2/فلسفية/7f707ee09bc244aa6c771092bf341dba.png.webp" alt="تطوير الذات">
+                    <h3> الموسوعة الفلسفية </h3>
+                    <p>السعر: 60 جنيه</p>
+                    <p>وضعه لجنه من العلماء والاكادميين</p>
+                </div>
+                <div class="book-card">
+                    <img src="./2/فلسفية/d84dd15e8c9534e7d11d7a2807080505.png.webp" alt="تطوير الذات">
+                    <h3> تحقيقات فلسفية</h3>
+                    <p>السعر: 60 جنيه</p>
+                    <p>عبد الرزاق بنور</p>
+                </div>
+                <div class="book-card">
+                    <img src="./2/فلسفية/f653bc17fb79eaba6f978561a1f6fa05.png.webp" alt="تطوير الذات">
+                    <h3> المعجم الفلسفي</h3>
+                    <p>السعر: 60 جنيه</p>
+                    <p>مصطفي حسيبة</p>
+                </div>
+               
+                <!-- باقي الكتب -->
+            </div>
+            <section>
+                <h2>الفئة الشخصية</h2>
+                <div class="books-container">
+                    <div class="book-card">
+                        <img src="./2/شخصية/4771a978cdec20828a74a677745a65b2.jpg.webp" alt="تطوير الذات">
+                        <h3> الشخصية المحمدية </h3>
+                        <p>السعر: 60 جنيه</p>
+                        <p>معروف الصافي</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="./2/شخصية/65ab4d613f124ba2daf57da289f3f633.jpg.webp" alt="تطوير الذات">
+                        <h3> الشخصية</h3>
+                        <p>السعر: 60 جنيه</p>
+                        <p>محمد قاسم عبد الله</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="./2/شخصية/79145be429274a7b8287b4be996b12a6.jpg.webp" alt="تطوير الذات">
+                        <h3> الشخصية</h3>
+                        <p>السعر: 60 جنيه</p>
+                        <p>جان كلود فييو</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="./2/شخصية/baab25d77f56fad7381b779105f34424.png.webp" alt="تطوير الذات">
+                        <h3> الشخصية</h3>
+                        <p>السعر: 60 جنيه</p>
+                        <p>محمد عطية </p>
+                    </div>
+                    <!-- باقي الكتب -->
+                </div>
+            </section>
+            <section>
+                <h2>الفئة الالكترونية</h2>
+                <div class="books-container">
+                    <div class="book-card">
+                        <img src="./2/الكترونية/027cde65f03e8def642da0ae7714ebd2.png.webp" alt="تطوير الذات">
+                        <h3> التكنولوجيا الالكترونية</h3>
+                        <p>السعر: 60 جنيه</p>
+                        <p>محمد محمود الخالدي</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="./2/الكترونية/4956bb8f0174e2f4c1cfa00ce32b1aa1.png.webp" alt="تطوير الذات">
+                        <h3> القرصنة الالكترونية وامن المعلومات </h3>
+                        <p>السعر: 60 جنيه</p>
+                        <p>احمد المشد</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="./2/الكترونية/6d3f82082c3a7447c3177ef7185a9c8a.jpg.webp" alt="تطوير الذات">
+                        <h3> العناصر الالكترونية</h3>
+                        <p>السعر: 60 جنيه</p>
+                        <p>عباس عبد الامير عبد الله</p>
+                    </div>
+                    <div class="book-card">
+                        <img src="./2/الكترونية/990051bc88de9ef6f66cc33e7c991960.png.webp" alt="تطوير الذات">
+                        <h3> المكتبات الالكترونية والرقمية</h3>
+                        <p>السعر: 60 جنيه</p>
+                        <p>ربحي مصطفي عليان</p>
+                    </div>
+                  
+                    <!-- باقي الكتب -->
+                </div>
+            </section>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2025</p>
+    </footer>
+
+</body>
+</html>
