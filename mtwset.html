@@ -3,199 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كتب المتوسط 🗽  </title>
+    <title>كتب المتوسط 🗽</title>
     <style>
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #FF4081;
+            --background-color: #f8f9fa;
+            --text-color: #333;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Cairo', Arial, sans-serif;
+            background-color: var(--background-color);
             margin: 0;
-            padding: 20px;
-
-
+            padding: 0;
+            direction: rtl;
         }
 
         h1 {
             text-align: center;
-            color: #333;
-     
+            color: var(--text-color);
+            margin: 2rem 0;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
         }
 
         .section {
-            margin: 40px 0;
-            padding: 20px;
-            border-radius: 5px;
-            background-color: #e9ecef;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            background-color: #fff;
+            box-shadow: var(--box-shadow);
+            max-width: 1200px;
         }
 
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
-            border-right: solid 7px rgb(36, 216, 223) ;
-            border-bottom-right-radius: 7px;
+            gap: 30px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 7px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+            border-radius: 3.5px;
         }
 
         .scroll-container {
-    overflow-x: auto; 
-    white-space: nowrap; 
-    padding: 10px 0; 
-    scroll-behavior: smooth; 
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            width: 100%;
+            
         }
 
         .book {
-            display: inline-block;
             background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 15px;
-            width: 200px;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            width: 220px;
             text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            min-width: 200px; 
-            margin-right: 15px; 
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 15px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
         }
-        
-        
-        
+
+        .book::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        }
+
         .book:hover {
-            transform: translateY(-5px); 
-            box-shadow: 0 6px 25px rgba(21, 163, 64, 0.829);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
         .book img {
-            max-width: 100%;
-            border-radius: 5px;
-            transition: transform 0.3s;
-
+            max-width: 150px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
         }
+
         .book:hover img {
-            transform: scale(1.05); 
+            transform: scale(1.05);
+        }
+
+        .book h3 {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin: 10px 0;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .download-btn {
             display: inline-block;
-            margin-top: 10px;
-            padding: 10px 15px;
-            background-color: #e01111;
+            padding: 12px 25px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: auto;
         }
 
         .download-btn:hover {
-            background-color: #cc1e98;
-            color: #fff;
-            font-style: italic;
-            font: bold;
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-
-
         .header {
+            background: linear-gradient(135deg, #fff, #f8f9fa);
+            padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px;
-            background-color: #e9ecef;
-            border-radius: 5px;
-            margin-bottom: 20px;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .header img {
-            max-width: 50px; 
-            animation: logoAnimation 4s infinite; 
+            max-width: 60px;
+            border-radius: var(--border-radius);
+            animation: pulse 2s infinite;
         }
 
-        .header h1 {
-            margin: 0;
-            font-size: 24px;
-            color: #333;
-            animation: colorChange 4s infinite; 
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
 
-        @keyframes logoAnimation {
-            0%, 100% { transform: scale(1); }
-            25% { transform: scale(1.2); }
-            50% { transform: scale(1.5); }
-            75% { transform: scale(1.2); }
-        }
-
-        @keyframes colorChange {
-            0% { color: #333; }
-            25% { color: #e011a2; }
-            50% { color: #19c0dd; }
-            75% { color: #dd10bb; }
-            100% { color: #333; }
-        }
-
-        .footer {
-    background: linear-gradient(90deg, #4A90E2, #50E3C2);
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-/**/
-
-
-
-
-.navbar {
-          
-            width: 70vh;
-            transform: translateX(110px);
-            padding-right: 40%;
-            
-            display: flex;
-            justify-content:space-evenly; 
-
-        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
             position: sticky;
-            align-items: center;
-            background:#ffffffa4;
-            color: white;
-            padding: 15px 20px; 
-            z-index: 1000; 
-            margin-left: 350px;
-            margin-right: 400px;
-            border-top: 5px solid #ff6347; 
-            border-right: 5px solid #6a5acd; 
-            border-bottom: 5px solid #20b2aa; 
-            border-left: 5px solid #ff69b4; 
-            border-radius: 10px; 
-            height: 4vh;
-}
+            top: 80px;
+            z-index: 999;
+            backdrop-filter: blur(10px);
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
 
         .nav-list {
             display: flex;
+            justify-content: center;
+            gap: 30px;
             list-style: none;
-            direction: rtl;
-        }
-
-        .nav-list li {
-            margin-left: 45px;
-            position: relative; 
+            padding: 0;
+            margin: 0;
         }
 
         .nav-list li a {
-            font-size: 18px;
+            color: var(--text-color);
             text-decoration: none;
-            color: rgb(219, 16, 175);
-            padding: 10px;
-            border-radius: 5px;
-            transition: background 0.3s;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
         }
 
         .nav-list li a:hover {
-            color: yellow;
-            background: rgba(128, 128, 128, 0.479);
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .price-tag {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 20px 0;
+            font-weight: bold;
+            box-shadow: var(--box-shadow);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .book {
+                width: 180px;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Add loading animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loading::after {
+            content: '';
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            color: var(--primary-color);
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .scroll-left {
+            left: 10px;
+        }
+
+        .scroll-right {
+            right: 10px;
+        }
+
+        .grade-section {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .grade-section:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .grade-section:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .book {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .loading {
+            background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .loading::after {
+            content: '';
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            position: relative;
+        }
+
+        .loading::before {
+            content: 'جاري التحميل...';
+            position: absolute;
+            bottom: -30px;
+            color: #fff;
+            font-size: 16px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .scroll-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+
+            .scroll-left {
+                left: 5px;
+            }
+
+            .scroll-right {
+                right: 5px;
+            }
         }
         
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            .nav-list {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-list {
+                display: none;
+            }
+
+            .nav-list.active {
+                display: flex;
+            }
+        }
 
         .hamburger {
             display: none;
@@ -206,279 +443,293 @@
         .bar {
             height: 3px;
             width: 25px;
-            background: rgb(219, 16, 175);
+            background: var(--text-color);
             margin: 4px 0;
             transition: 0.4s;
         }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px;
+                margin: 10px;
+            }
 
-        @media (max-width: 968px) {
             .nav-list {
                 display: none;
                 flex-direction: column;
-                position: absolute;
-                background: #ffffffa4;
-                width: 100%;
-                left: 0;
-                top: 60px;
-                padding: 10px;
-                border-radius: 10px;
-                
+                text-align: center;
+                gap: 15px;
             }
-            .navbar{
-                margin: 0;
-             border: none;
-             position: relative;
-             height: 30px;
-             width: 70px;
-          
-          
-            }
-            
-           
 
             .nav-list.active {
                 display: flex;
-                text-align: left;
             }
 
             .hamburger {
                 display: flex;
-                position: absolute;
-                content: "";
-                height: 30px;
-                width: 20px;
             }
-            .nav-list li a {
-            font-size: 20px;
-            color: rgb(219, 16, 175);
-          
-        
+
+            .section {
+                margin: 20px 10px;
+                padding: 15px;
+            }
+
+            .book {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
 
         
-        }
-        }
-      /**/   </style>
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    <div id="loading" class="loading"></div>
 
     <div class="header">
-        <img src="./1/school/feem_5dc1479c8482e_IMG-20250327-WA0032.jpg"  style="border-radius: 10px;"  alt="ادراك">
-        <h1>"قل هل يستوي الذين يعلمون والذين لا يعلمون إنما يتذكر أولو الألباب" </h1>
-        <h1> ادراك</h1>
+        <img src="./1/school/feem_5dc1479c8482e_IMG-20250327-WA0032.jpg" alt="ادراك">
+        <h1>"قل هل يستوي الذين يعلمون والذين لا يعلمون إنما يتذكر أولو الألباب"</h1>
+        <h1>ادراك</h1>
     </div>
-
-    
-    <nav class="navbar">
-        
+<nav class="navbar">
         <div class="hamburger" id="hamburger">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
         <ul class="nav-list" id="navList">
-            <li><a href="rw2.html">روضه</a></li>
-            <li><a href="ept.html">ابتدائى</a></li>
-            <li><a href="mtwset.html">متوسط </a></li>
+            <li><a href="home.html">الرئيسية</a></li>
+            <li><a href="rw2.html">روضة</a></li>
+            <li><a href="ept.html">ابتدائي</a></li>
+            <li><a href="mtwset.html">متوسط</a></li>
             <li><a href="thanawy.html">ثانوي</a></li>
-            <li><a href="home.html">الرئيسيه</a></li>
         </ul>
     </nav>
 
-    <h1>كتب الصف الأول<span style="color: #21c021;">  متوسط</span></h1>
-    <div class="section">
-        <div class="container">
-            <div class="scroll-container">
-            <div class="book">
-                <img src="./1/school/6/final.png" alt="كتاب 1">
-                <h3>كتاب  اللغة الانجليزية</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-        
-            </div>
-            <div class="book">
-                <img src="./1/school/6/العربية.png" alt="كتاب 2">
-                <h3>كتاب اللغة العربية</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            <div class="book">
-                <img src="./1/school/6/الانجليزي.png" alt="كتاب 3">
-                <h3>كتاب اللغة الانجليزية</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            <div class="book">
-                <img src="./1/school/6/الجغرافيا.png" alt="كتاب 4">
-                <h3>كتاب الجغرافيا</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            <div class="book">
-                <img src="./1/school/6/التاريخ.png" alt="كتاب 4">
-                <h3>كتاب التاريخ</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            <div class="book">
-                <img src="./1/school/6/التربية الاسلامية.png" alt="كتاب 4">
-                <h3>كتاب الاسلامية</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            
-            <div class="book">
-                <img src="./1/school/6/الرياضيات.png" alt="كتاب 4">
-                <h3>كتاب الرياضيات</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            
-            <div class="book">
-                <img src="./1/school/6/العلوم الطبيعية.png" alt="كتاب 4">
-                <h3>كتاب العلوم</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-             
-            <div class="book">
-                <img src="./1/school/6/تكنولوجيا المعلومات والاتصالات.png" alt="كتاب 4">
-                <h3>كتاب تكنولوجيا المعلومات</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-        </div>
-        <h2>$39.3</h2>
-    </div>
-</div>
-
-
-
-    
-    <h1>كتب الصف الثاني<span style="color: #882172;">  متوسط</span></h1>
-    <div class="section">
-        <div class="container">
-            <div class="scroll-container">
-            <div class="book">
-                <img src="./1/school/7/اسلامية.png" alt="كتاب 1">
-                <h3>كتاب التربية الاسلامية</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            <div class="book">
-                <img src="./1/school/7/التاريخ.png" alt="كتاب 2">
-                <h3>كتاب التاريخ </h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            <div class="book">
-                <img src="./1/school/7/جغرافيا.png" alt="كتاب 3">
-                <h3>كتاب الجغرافيا </h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            <div class="book">
-                <img src="./1/school/7/الرياضيات.png" alt="كتاب 4">
-                <h3>كتاب الرياضيات</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            
-            <div class="book">
-                <img src="./1/school/7/العلوم الطبيعية.png" alt="كتاب 3">
-                <h3>كتاب العلوم الطبعية</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            
-            <div class="book">
-                <img src="./1/school/7/اساسيات التربية التقنية.png" alt="كتاب 3">
-                <h3>كتاب اساسيات التربية التقنية </h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            
-            <div class="book">
-                <img src="./1/school/7/انجليزي1.png" alt="كتاب 3">
-                <h3>كتاب اللغة الانجليزية 1</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            
-            <div class="book">
-                <img src="./1/school/7/انجليزي2.png" alt="كتاب 3">
-                <h3>كتاب اللغة الانجليزية 2</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            
-            
-        </div>
-      <h2>  $39.3</h2>
-    </div>
-</div>
-
-
-
-
-
-
-
-    
-    <h1>كتب الصف الثالث<span style="color: #a4cc12;">  متوسط</span></h1>
-    <div class="section">
-        <div class="container">
-            <div class="scroll-container">
-            <div class="book">
-                <img src="./1/school/8/التربية التقنية.png" alt="كتاب 1">
-                <h3>كتاب اساسيات التربية التقنية</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            <div class="book">
-                <img src="./1/school/8/انجليزي.png" alt="كتاب 2">
-                <h3>كتاب اللغة الانجليزية</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            <div class="book">
-                <img src="./1/school/8/اسلامية.png" alt="كتاب 3">
-                <h3>كتاب الاسلامية</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            <div class="book">
-                <img src="./1/school/8/الجغرافيا.png" alt="كتاب 4">
-                <h3>كتاب الجغرافيا</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            
-           
-            
-            <div class="book">
-                <img src="./1/school/8/الرياضيات.png" alt="كتاب 3">
-                <h3>كتاب الرياضيات </h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            
-            <div class="book">
-                <img src="./1/school/8/تاريخ.png" alt="كتاب 3">
-                <h3>كتاب التاريخ </h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            
-            <div class="book">
-                <img src="./1/school/8/تكنولوجيا المعلومات والاتصالات.png" alt="كتاب 3">
-                <h3>كتاب تكنولوجيا المعلومات والاتصالات</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            
-            <div class="book">
-                <img src="./1/school/8/العربية.png" alt="كتاب 3">
-                <h3>كتاب اللغة العربية</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
-            </div>
-            <div class="book">
-                <img src="./1/school/8/العلوم.png" alt="كتاب 3">
-                <h3>كتاب اللعلوم</h3>
-                <a href="./buyer.html" class="download-btn"> شراء</a>
+    <section class="grade-section">
+        <h1>كتب الصف الأول<span style="color: var(--primary-color);">  متوسط</span></h1>
+        <div class="section">
+            <div class="container">
+                <div class="scroll-container">
+                    <div class="book">
+                        <img src="./1/school/6/final.png" alt="كتاب اللغة الانجليزية">
+                        <h3>كتاب اللغة الانجليزية</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/6/العربية.png" alt="كتاب اللغة العربية">
+                        <h3>كتاب اللغة العربية</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/6/الانجليزي.png" alt="كتاب اللغة الانجليزية">
+                        <h3>كتاب اللغة الانجليزية</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/6/الجغرافيا.png" alt="كتاب الجغرافيا">
+                        <h3>كتاب الجغرافيا</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/6/التاريخ.png" alt="كتاب التاريخ">
+                        <h3>كتاب التاريخ</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/6/التربية الاسلامية.png" alt="كتاب التربية الاسلامية">
+                        <h3>كتاب التربية الاسلامية</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/6/الرياضيات.png" alt="كتاب الرياضيات">
+                        <h3>كتاب الرياضيات</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/6/العلوم الطبيعية.png" alt="كتاب العلوم">
+                        <h3>كتاب العلوم</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/6/تكنولوجيا المعلومات والاتصالات.png" alt="كتاب تكنولوجيا المعلومات">
+                        <h3>كتاب تكنولوجيا المعلومات</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                </div>
+                <div class="price-tag">السعر: $39.3</div>
             </div>
         </div>
-        <h2>$39.4</h2>
-    </div>
-    </div>
+    </section>
+
+    <section class="grade-section">
+        <h1>كتب الصف الثاني<span style="color: var(--secondary-color);">  متوسط</span></h1>
+        <div class="section">
+            <div class="container">
+                <div class="scroll-container">
+                    <div class="book">
+                        <img src="./1/school/7/اسلامية.png" alt="كتاب التربية الاسلامية">
+                        <h3>كتاب التربية الاسلامية</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/7/التاريخ.png" alt="كتاب التاريخ">
+                        <h3>كتاب التاريخ</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/7/جغرافيا.png" alt="كتاب الجغرافيا">
+                        <h3>كتاب الجغرافيا</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/7/الرياضيات.png" alt="كتاب الرياضيات">
+                        <h3>كتاب الرياضيات</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/7/العلوم الطبيعية.png" alt="كتاب العلوم الطبيعية">
+                        <h3>كتاب العلوم الطبيعية</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/7/اساسيات التربية التقنية.png" alt="كتاب اساسيات التربية التقنية">
+                        <h3>كتاب اساسيات التربية التقنية</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/7/انجليزي1.png" alt="كتاب اللغة الانجليزية 1">
+                        <h3>كتاب اللغة الانجليزية 1</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/7/انجليزي2.png" alt="كتاب اللغة الانجليزية 2">
+                        <h3>كتاب اللغة الانجليزية 2</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                </div>
+                <div class="price-tag">السعر: $39.3</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="grade-section">
+        <h1>كتب الصف الثالث<span style="color: #4CAF50;">  متوسط</span></h1>
+        <div class="section">
+            <div class="container">
+                <div class="scroll-container">
+                    <div class="book">
+                        <img src="./1/school/8/التربية التقنية.png" alt="كتاب اساسيات التربية التقنية">
+                        <h3>كتاب اساسيات التربية التقنية</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/8/انجليزي.png" alt="كتاب اللغة الانجليزية">
+                        <h3>كتاب اللغة الانجليزية</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/8/اسلامية.png" alt="كتاب التربية الاسلامية">
+                        <h3>كتاب التربية الاسلامية</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/8/الجغرافيا.png" alt="كتاب الجغرافيا">
+                        <h3>كتاب الجغرافيا</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/8/الرياضيات.png" alt="كتاب الرياضيات">
+                        <h3>كتاب الرياضيات</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/8/تاريخ.png" alt="كتاب التاريخ">
+                        <h3>كتاب التاريخ</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/8/تكنولوجيا المعلومات والاتصالات.png" alt="كتاب تكنولوجيا المعلومات والاتصالات">
+                        <h3>كتاب تكنولوجيا المعلومات والاتصالات</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/8/العربية.png" alt="كتاب اللغة العربية">
+                        <h3>كتاب اللغة العربية</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                    <div class="book">
+                        <img src="./1/school/8/العلوم.png" alt="كتاب العلوم">
+                        <h3>كتاب العلوم</h3>
+                        <a href="./buyer.html" class="download-btn">شراء</a>
+                    </div>
+                </div>
+                <div class="price-tag">السعر: $39.4</div>
+            </div>
+        </div>
+    </section>
 
     <div class="footer">
-        <p>مرحبًا بكم في موقعنا ادراك</p>
+        <p>مرحباً بكم في موقع ادراك التعليمي</p>
         <p>تواصل معنا عبر البريد الإلكتروني: Edrak@gmail.com</p>
     </div>
+
     <script>
+        // Loading animation
+        window.addEventListener('load', function() {
+            document.getElementById('loading').style.display = 'none';
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll buttons for book containers
+        document.querySelectorAll('.scroll-container').forEach(container => {
+            const scrollAmount = 300;
+            
+            // Scroll left button
+            const leftBtn = document.createElement('button');
+            leftBtn.innerHTML = '&#10094;';
+            leftBtn.className = 'scroll-btn scroll-left';
+            leftBtn.onclick = () => {
+                container.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            };
+            
+            // Scroll right button
+            const rightBtn = document.createElement('button');
+            rightBtn.innerHTML = '&#10095;';
+            rightBtn.className = 'scroll-btn scroll-right';
+            rightBtn.onclick = () => {
+                container.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            };
+            
+            container.parentElement.appendChild(leftBtn);
+            container.parentElement.appendChild(rightBtn);
+        });
+
+
+       
         const hamburger = document.getElementById("hamburger");
         const navList = document.getElementById("navList");
-    
+
         hamburger.addEventListener("click", () => {
-            navList.classList.toggle("active"); 
+            navList.classList.toggle("active");
         });
+   
     </script>
 </body>
 </html>
